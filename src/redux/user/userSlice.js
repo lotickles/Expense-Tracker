@@ -6,7 +6,7 @@ import {
   deleteAvatarThunk,
 } from './operations.js';
 import { loginThunk, registerThunk } from '../auth/operations.js';
-import { createTransactionThunk } from 'redux/transactions/operations.js';
+import { createTransactionThunk } from '../../redux/transactions/operations.js';
 
 const initialState = {
   user: {

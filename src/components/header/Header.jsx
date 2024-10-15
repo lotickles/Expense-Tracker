@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
-import Modal from 'components/modal/Modal';
-import { selectIsLoggedIn } from 'redux/auth/selectors';
-import { selectUser } from 'redux/user/selectors';
-import { useModal } from 'components/hooks/useModal';
-import UserSetsModal from 'components/userSetsModal/UserSetsModal';
-import LogOutModal from 'components/logOutModal/LogOutModal';
+import Modal from '../modal/Modal';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { selectUser } from '../../redux/user/selectors';
+import { useModal } from '../hooks/useModal';
+import UserSetsModal from '../userSetsModal/UserSetsModal';
+import LogOutModal from '../logOutModal/LogOutModal';
 
 import {
   HeaderLink,
@@ -39,7 +39,7 @@ import {
   HeaderBurgerMenu,
   UsualBackDrop,
 } from './headerStyled';
-import Symbols from 'images/svg/Symbols';
+import Symbols from '../../images/svg/Symbols';
 
 const Header = () => {
   const location = useLocation();

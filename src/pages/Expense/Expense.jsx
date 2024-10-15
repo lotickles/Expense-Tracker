@@ -3,13 +3,16 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { Navigate } from 'react-router-dom';
 
-import { Filter } from 'components/filter/Filter';
-import { selectFilter, selectStartDate } from 'redux/filter/filterSelector';
+import { Filter } from '../../components/Filter';
+import {
+  selectFilter,
+  selectStartDate,
+} from '../../redux/filter/filterSelector';
 import {
   deleteTransactionThunk,
   getTransactionsThunk,
-} from 'redux/transactions/operations';
-import { selectTransaction } from 'redux/transactions/selectors';
+} from '../../redux/transactions/operations.js';
+import { selectTransaction } from '../../redux/transactions/selectors.js';
 import { SectionTransaction } from 'components/sectionTransactionList/sectionTransaction';
 import { TotalExpense, TotalIncome } from 'shared/Total';
 import { selectIsLoggedIn } from 'redux/auth/selectors';
@@ -38,21 +41,17 @@ import {
 import svg from '../../images/Sprite.svg';
 import { FramerMotion } from 'helpers/framer-motion';
 
-
 // edit modal
 import Modal from 'components/modal/Modal';
 import { useModal } from 'components/hooks/useModal';
 import OperationForm from 'shared/OperationForm/OperationForm';
-
-
-
 
 const Expense = () => {
   const dispatch = useDispatch();
   const filter = useSelector(selectFilter);
 
   const { isOpened, openModal, closeModal } = useModal();
-  const [ editData, setEditData ] = useState('')
+  const [editData, setEditData] = useState('');
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const transactions = useSelector(selectTransaction);
@@ -135,8 +134,12 @@ const Expense = () => {
                     <P3>{transaction.date}</P3>
                     <P4>{transaction.time}</P4>
                     <P5>{transaction.sum}</P5>
-                    <EditBtn onClick={() => 
-                      {setEditData(transaction); openModal()}}>
+                    <EditBtn
+                      onClick={() => {
+                        setEditData(transaction);
+                        openModal();
+                      }}
+                    >
                       <svg width={16} height={16}>
                         <use href={svg + '#icon-edit-2'}></use>
                       </svg>
@@ -165,11 +168,13 @@ const Expense = () => {
         </DIVTR>
       </FramerMotion>
       {isOpened ? (
-            <Modal
-              children={<OperationForm editData={editData} closeModal={closeModal}/>}
-              closeModal={closeModal}
-            />
-          ) : null}
+        <Modal
+          children={
+            <OperationForm editData={editData} closeModal={closeModal} />
+          }
+          closeModal={closeModal}
+        />
+      ) : null}
     </MainWr>
   );
 };

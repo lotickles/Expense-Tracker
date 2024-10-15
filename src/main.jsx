@@ -10,11 +10,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import App from './components/App';
-import { GlobalStyles } from './styles/GlobalStyles';
+import { GlobalStyles } from './styles/GlobalStyles.js';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   // <React.StrictMode>
-  <BrowserRouter basename="/goit-expenses-tracker">
+  <BrowserRouter basename="/expense-tracker">
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <App />

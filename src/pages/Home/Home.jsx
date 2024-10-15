@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
-import { selectIsLoggedIn } from 'redux/auth/selectors.js';
-import { TotalIncome } from 'shared/Total';
+import { selectIsLoggedIn } from '../../redux/auth/selectors';
+import { TotalIncome } from '../../pages/home';
 
 import {
   AdaptDiv,

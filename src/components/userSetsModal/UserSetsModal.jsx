@@ -1,15 +1,15 @@
 import React, { useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { selectLoading, selectUser } from 'redux/user/selectors';
+import { selectLoading, selectUser } from '../../redux/user/selectors';
 import {
   changeAvatarThunk,
   deleteAvatarThunk,
   updateUserInfoThunk,
-} from 'redux/user/operations';
-import { CirclesWithBar } from 'react-loader-spinner';
+} from '../../redux/user/operations.js';
+import { MutatingDots } from 'react-loader-spinner';
 
-import Symbols from 'images/svg/Symbols';
+import Symbols from '../../images/svg/Symbols';
 import {
   GrayButton,
   StyledBtnWrap,
@@ -22,7 +22,7 @@ import {
   StyledSvgWrap,
   StyledTitle,
   StyledWrap,
-} from 'components/userSetsModal/UserSetsModal.styled';
+} from './UserSetsModal.styled';
 import { toast } from 'react-toastify';
 
 const CURRENCIES = [
@@ -103,7 +103,7 @@ const UserSetsModal = ({ closeModal }) => {
           <StyledSvgWrap>
             {loading ? (
               <StyledLoader>
-                <CirclesWithBar />
+                <MutatingDots />
               </StyledLoader>
             ) : (
               <img src={user.avatarUrl} alt="user avatar" />
@@ -114,7 +114,7 @@ const UserSetsModal = ({ closeModal }) => {
             <Symbols />
             {loading ? (
               <StyledLoader>
-                <CirclesWithBar />
+                <MutatingDots />
               </StyledLoader>
             ) : (
               <svg width={38} height={38}>

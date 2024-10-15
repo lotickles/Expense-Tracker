@@ -85,5 +85,5 @@ export const FramerMotion = ({ children, $variant }) => {
 
   const animationVariant = getAnimationVariant();
 
-  return <motion.div {...animationVariant}>{children}</motion.div>;
+  return <div {...animationVariant}>{children}</div>;
 };
